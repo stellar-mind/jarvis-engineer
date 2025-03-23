@@ -2,11 +2,23 @@
 
 import { execSync } from "child_process";
 
-export default function github_committer(message: string, branch: string = "feature/auto-commit"): { success: boolean; branch?: string; error?: string } {
+export default function github_committer(
+  message: string,
+  branch: string = "feature/auto-commit"
+): { success: boolean; branch?: string; error?: string } {
   try {
-    console.log("📦 Criando branch e preparando commit...");
+    console.log("📦 Preparando commit para a branch:", branch);
 
-    execSync(`git checkout -b ${branch}`, { stdio: "inherit" });
+    // Verifica se a branch já existe localmente
+    const branches = execSync("git branch", { encoding: "utf-8" });
+    const branchExists = branches.split("\n").some(b => b.trim().replace(/^\*\s*/, "") === branch);
+
+    if (!branchExists) {
+      execSync(`git checkout -b ${branch}`, { stdio: "inherit" });
+    } else {
+      execSync(`git checkout ${branch}`, { stdio: "inherit" });
+    }
+
     execSync(`git add .`, { stdio: "inherit" });
     execSync(`git commit -m \"${message}\"`, { stdio: "inherit" });
     execSync(`git push -u origin ${branch}`, { stdio: "inherit" });

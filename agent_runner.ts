@@ -2,11 +2,11 @@
 
 import fs from "fs";
 import path from "path";
-import code_writer from "./tools/code_writer.ts";
-import file_manager from "./tools/file_manager.ts";
-import test_runner from "./tools/test_runner.ts";
-import github_committer from "./tools/github_committer.ts";
-import { MCPContext } from "./types/types.ts";
+import code_writer from "./tools/code_writer.js";
+import file_manager from "./tools/file_manager.js";
+import test_runner from "./tools/test_runner.js";
+import github_committer from "./tools/github_committer.js";
+import { MCPContext } from "./types/types";
 
 const contextPath = path.resolve("mcp/mcp_context.json");
 

@@ -1,8 +1,8 @@
 export default {
-    transform: {
-      '^.+\\.jsx?$': 'babel-jest'
-    },
-    moduleFileExtensions: ['js', 'jsx'],
-    testEnvironment: 'jsdom'
-  };
-  
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest'
+  },
+  moduleFileExtensions: ['ts', 'js'],
+  testMatch: ['**/tests/**/*.test.ts'],
+  testEnvironment: 'node'
+};

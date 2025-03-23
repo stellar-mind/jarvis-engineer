@@ -8,6 +8,7 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "rootDir": "./", 
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
@@ -16,6 +17,6 @@
       "@mcp/*": ["mcp/*"]
     }
   },
-  "include": ["src/**/*.ts", "agents/**/*.ts", "tools/**/*.ts", "mcp/**/*.ts", "tests/**/*.ts"],
+  "include": ["./**/*.ts","src/**/*.ts", "agents/**/*.ts", "tools/**/*.ts", "mcp/**/*.ts", "tests/**/*.ts"],
   "exclude": ["dist"]
 }
