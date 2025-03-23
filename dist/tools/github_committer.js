@@ -14,6 +14,7 @@ export default function github_committer(message, branch = "feature/auto-commit"
         }
         execSync(`git add .`, { stdio: "inherit" });
         execSync(`git commit -m \"${message}\"`, { stdio: "inherit" });
+        execSync(`git pull -u origin ${branch}`, { stdio: "inherit" });
         execSync(`git push -u origin ${branch}`, { stdio: "inherit" });
         console.log("✅ Código enviado com sucesso para o GitHub!");
         return { success: true, branch };
