@@ -1,16 +1,17 @@
-// tools/code_writer.js
+// tools/code_writer.ts
+
 import { OpenAI } from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY || ""
 });
 
-export default async function code_writer(input) {
+export default async function code_writer(input: any): Promise<string | null> {
   const prompt = `Crie um componente funcional em React Native com as seguintes especificações:
 
-  - Deve ser chamado de "Button"
+  - Deve ser chamado de \"Button\"
   - Deve receber as seguintes props: text (string), color (string), onPress (função)
   - Deve aplicar a cor recebida como backgroundColor
   - Deve centralizar o texto dentro do botão
@@ -29,8 +30,7 @@ Retorne apenas o código do componente, sem explicações.`;
       max_tokens: 500
     });
 
-    const generatedCode = completion.choices[0].message.content.trim();
-    return generatedCode;
+    return completion.choices[0].message.content?.trim() || null;
   } catch (error) {
     console.error("Erro ao gerar código com OpenAI:", error);
     return null;

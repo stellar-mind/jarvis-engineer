@@ -1,16 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import code_writer from './tools/code_writer.js';
-import file_manager from './tools/file_manager.js';
-import test_runner from './tools/test_runner.js';
-import github_committer from './tools/github_committer.js';
+// agent_runner.ts
 
+import fs from "fs";
+import path from "path";
+import code_writer from "./tools/code_writer.ts";
+import file_manager from "./tools/file_manager.ts";
+import test_runner from "./tools/test_runner.ts";
+import github_committer from "./tools/github_committer.ts";
+import { MCPContext } from "./types/types.ts";
 
 const contextPath = path.resolve("mcp/mcp_context.json");
 
 async function runAgent() {
-  const context = JSON.parse(fs.readFileSync(contextPath, "utf8"));
-  let last_output = "";
+  const context: MCPContext = JSON.parse(fs.readFileSync(contextPath, "utf8"));
+  let last_output: any = "";
 
   for (const action of context.actions) {
     console.log(`\n▶️ Executando ação: ${action.type}`);

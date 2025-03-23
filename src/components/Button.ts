@@ -1,4 +1,3 @@
-```jsx
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
@@ -19,9 +18,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    textAlign: 'center',
+    fontSize: 16,
   },
 });
 
 export default Button;
-```
