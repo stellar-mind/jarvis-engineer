@@ -1,0 +1,54 @@
+{
+    "goals": [
+      "Criar um componente de botão em React Native com props de texto, cor e evento de clique"
+    ],
+    "history": [],
+    "tools": [
+      {
+        "name": "code_writer",
+        "description": "Gera código React Native com base nas instruções"
+      },
+      {
+        "name": "file_manager",
+        "description": "Cria, edita ou salva arquivos no sistema local"
+      },
+      {
+        "name": "test_runner",
+        "description": "Executa testes automatizados nos arquivos do projeto"
+      },
+      {
+        "name": "github_committer",
+        "description": "Cria branch, faz commit e push para repositório GitHub"
+      }
+    ],
+    "state": {
+      "current_task": "Gerar código do componente de botão",
+      "files": [],
+      "branch": "feature/button-component"
+    },
+    "actions": [
+      {
+        "type": "generate_code",
+        "tool": "code_writer",
+        "input": "Crie um componente funcional de botão em React Native com props: text, color, onPress"
+      },
+      {
+        "type": "write_file",
+        "tool": "file_manager",
+        "input": {
+          "path": "src/components/Button.js",
+          "content_from": "last_output"
+        }
+      },
+      {
+        "type": "run_tests",
+        "tool": "test_runner",
+        "input": "Testar se o botão renderiza corretamente e dispara o evento"
+      },
+      {
+        "type": "commit_code",
+        "tool": "github_committer",
+        "input": "Adiciona componente de botão funcional"
+      }
+    ]
+  }
