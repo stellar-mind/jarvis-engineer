@@ -22,7 +22,10 @@ async function runAgent() {
                 test_runner();
                 break;
             case "commit_code":
-                github_committer(action.input, context.state.branch);
+                const commitResult = await github_committer(action.input, context.state.branch);
+                if (!commitResult.success) {
+                    console.error("Erro ao comitar e fazer push para o GitHub.");
+                }
                 break;
             default:
                 console.warn(`⚠️ Tipo de ação não reconhecido: ${action.type}`);
