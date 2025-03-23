@@ -30,7 +30,10 @@ async function runAgent() {
         break;
 
       case "commit_code":
-        github_committer(action.input, context.state.branch);
+        const commitResult = await github_committer(action.input, context.state.branch);
+        if (!commitResult.success) {
+          console.error("Erro ao comitar e fazer push para o GitHub.");
+        }
         break;
 
       default:
