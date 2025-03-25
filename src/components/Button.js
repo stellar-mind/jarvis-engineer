@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   text: {
     color: '#fff',
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default Button;
